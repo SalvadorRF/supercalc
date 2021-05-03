@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Calculadora de Distribuciones</title>
+
+  <link href="./dist/css/style.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="math.css">
+</head>
+
+<body>
+
+  <div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+
+  <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+
+    <header class="topbar" data-navbarbg="skin6">
+      <nav class="navbar top-navbar navbar-expand-md">
+        <div class="navbar-header" data-logobg="skin6">
+          <!-- This is for the sidebar toggle which is visible on mobile only -->
+          <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i
+              class="ti-menu ti-close"></i></a>
+          <!-- ============================================================== -->
+          <!-- Logo -->
+          <!-- ============================================================== -->
+          <div class="navbar-brand">
+            <!-- Logo icon -->
+            <a href="index.html">
+              <b class="logo-icon">
+                <!-- Dark Logo icon -->
+                <img src="./assets/img/undraw_All_the_data_re_hh4w.svg" width="65" height="60" alt="homepage" class="dark-logo" />
+                <!-- Light Logo icon -->
+                <img src="./assets/img/undraw_All_the_data_re_hh4w.svg" width="65" height="60" alt="homepage" class="light-logo" />
+              </b>
+              <!--End Logo icon -->
+              <!-- Logo text -->
+              <span class="logo-text">
+                SuperCalc
+              </span>
+            </a>
+          </div>
+          <!-- ============================================================== -->
+          <!-- End Logo -->
+          <!-- ============================================================== -->
+          <!-- ============================================================== -->
+          <!-- Toggle which is visible on mobile only -->
+          <!-- ============================================================== -->
+          <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)"
+            data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Logo -->
+        <!-- ============================================================== -->
+
+      </nav>
+    </header>
+
+    <aside class="left-sidebar" data-sidebarbg="skin6">
+      <!-- Sidebar scroll-->
+      <div class="scroll-sidebar" data-sidebarbg="skin6">
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav">
+          <ul id="sidebarnav">
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" href="index.html" aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span class="hide-menu">Dashboard</span></a>
+            </li>
+            <li class="list-divider"></li>
+            <li class="nav-small-cap">
+              <span class="hide-menu">Distribuciones</span>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="binomial.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Binomial</span></a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" href="hipergeometrica.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Hipergeométrica</span></a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" href="possion.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Possion</span></a>
+            </li>
+
+            <li class="list-divider"></li>
+            <li class="nav-small-cap">
+              <span class="hide-menu">Funciones</span>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" href="lamda.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Lambda en Possion</span></a>
+            </li>
+            
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" href="fgama.html" aria-expanded="false"><i data-feather="tag" class="feather-icon"></i><span class="hide-menu">Funcion Gama</span></a>
+            </li>
+
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" target="_blank" href="https://calculadora-aldolozanot.netlify.app/" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Combinaciones</span></a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link sidebar-link" target="_blank" href="https://calculadora-aldolozanot.netlify.app/" aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span class="hide-menu">Permutaciones</span></a>
+            </li>
+          </ul>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+
+    <div class="page-wrapper">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="card-body">
+                <div class="d-flex align-items-start mb-3">
+                  <h4 class="card-title mb-0">Calculadora <small>Distribución Binomial</small> </h4>
+                  <div class="ml-auto">
+                    <div class="dropdown sub-dropdown">
+                      <button id="btn-limpiar"  class="btn btn-primary" type="button">
+                        Limpiar 🗑
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_x_append">x =</span>
+                  </div>
+                  <input id="frm_db_x" class="form-control" min="0" type="number" name=""
+                    placeholder="Numero de exitos esperados" aria-label="x" aria-describedby="frm_db_x_append">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_n_append">n =</span>
+                  </div>
+                  <input id="frm_db_n" class="form-control" min="0" type="number" name=""
+                    placeholder="Numero de ensayos" aria-label="x" aria-describedby="frm_db_n_append" required>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_p_append">p =</span>
+                  </div>
+                  <input id="frm_db_p" class="form-control" min="0" max="1" type="number" name=""
+                    placeholder="Probabilidad de exito" aria-label="x" aria-describedby="frm_db_p_append">
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_res_append">P(x,n,p) =</span>
+                  </div>
+                  <input id="frm_db_res" class="form-control" type="text" name="" placeholder="" aria-label="x"
+                    aria-describedby="frm_db_res_append">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_res_append">Copiar ! </span>
+                  </div>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_res_append">P(x,n,p) = </span>
+                  </div>
+                  <input id="frm_db_resPor" class="form-control" type="text" name="" placeholder="" aria-label="x"
+                    aria-describedby="frm_db_res_append">
+                  <div class="input-group-append">
+                    <span class="input-group-text" id="frm_db_res_append">Copiar !</span>
+                  </div>
+                </div>
+
+                <div id="db_procedAlert" class="alert alert-primary" style="display: none;" role="alert">
+                  Tu profe te pide <strong>procedimiento</strong>? A que pesado tu profe*, No te preocupes!!! 😉 <button
+                    id="show_db_proced" class="btn btn-primary" type="button">Ver 👀</button>
+                </div>
+                <small id="smallAlert" style="display: none;">*Si es profesor, no pida procedimiento, para eso existen
+                  estas calculadoras !!</small>
+                <br>
+                <br>
+                <div id="procedimiento"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="footer text-center">
+        Salvador Rico - DevSalva, 2021
+      </footer>
+    </div>
+  </div>
+
+  <script src="./assets/libs/jquery/dist/jquery.min.js"></script>
+  <script src="./assets/extra-libs/taskboard/js/jquery.ui.touch-punch-improved.js"></script>
+  <script src="./assets/extra-libs/taskboard/js/jquery-ui.min.js"></script>
+  <script src="./assets/libs/popper.js/dist/umd/popper.min.js"></script>
+  <script src="./assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- apps -->
+  <script src="./dist/js/app-style-switcher.js"></script>
+  <script src="./dist/js/feather.min.js"></script>
+  <script src="./assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+  <script src="./dist/js/sidebarmenu.js"></script>
+  <!--Custom JavaScript -->
+  <script src="./dist/js/custom.min.js"></script>
+  <!--This page JavaScript -->
+  <script src="./assets/libs/moment/min/moment.min.js"></script>
+  <script src="./assets/libs/fullcalendar/dist/fullcalendar.min.js"></script>
+  <script src="./dist/js/pages/calendar/cal-init.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.3.2/math.js"
+    integrity="sha512-Imer9iTeuCPbyZUYNTKsBWsAk3m7n1vOgPsAmw4OlkGSS9qK3/WlJZg7wC/9kL7nUUOyb06AYS8DyYQV7ELEbg=="
+    crossorigin="anonymous"></script>
+  <script src="functionsStadistic.js"></script>
+  <script src="distribucionBinomial.js"></script>
+</body>
+
+</html>
